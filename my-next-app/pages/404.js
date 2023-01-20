@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '@/Components/Layout';
 
 const ErrorMassage = () => {
     const router = useRouter();
+    useEffect(() => {
+        setTimeout(()=> {
+            router.push('/')
+        },4000);
+    },[]);
     return (
         <Layout>
             <div>

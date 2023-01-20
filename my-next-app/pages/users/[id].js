@@ -10,7 +10,7 @@ const UserId = ({ user }) => {
             <Layout>
                 <div className='container'>
                     <div className='d-flex justify-content-between '>
-                        <h1><u>User Detail page</u> </h1>
+                        <h1 style={{fontSize: "20px" , color:"blue"}}><u>User Detail page</u> </h1>
                         <button onClick={() => {router.push('/users')}} className='rounded bg-secondary text-light text-uppercase'>go to back page</button>
                     </div>
 

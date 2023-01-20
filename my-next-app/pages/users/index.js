@@ -3,23 +3,24 @@ import React from 'react';
 import axios from 'axios';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import styles from '../../styles/UsersStyles/users.module.scss';
 
 const Index = ({ users }) => {
     const router = useRouter();
     return (
         <Layout>
             <div className='container'>
-                <div className='d-flex justify-content-between '>
+                <div className={styles.main_Header}>
                     <h1><u>All Users</u> </h1>
                     <button className='rounded bg-secondary text-light text-uppercase' onClick={() => {router.push('/')}}>go to Home page</button>
                 </div> 
 
                 <table className='table'>
                     <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>User ID</th>
-                            <th>Company Detail</th>
+                        <tr> 
+                            <th className='heading'>Name</th>
+                            <th className='heading'>User ID</th>
+                            <th className='heading'>Company Detail</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,6 +34,13 @@ const Index = ({ users }) => {
                     </tbody>
 
                 </table>
+
+                <style jsx>{`
+                    h1{
+                        color : blue;
+                        font-size : 20px;
+                    }
+                `}</style>
             </div>
 
         </Layout>
