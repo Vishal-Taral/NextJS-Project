@@ -42,6 +42,7 @@ const UserId = ({ user }) => {
 export default UserId;
 
 export async function getServerSideProps(context) {
+    
     try {
         const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users/${context.query.id}`)
         return {

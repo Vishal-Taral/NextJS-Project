@@ -9,7 +9,11 @@ const Index = ({ users }) => {
     return (
         <Layout>
             <div className='container'>
-                <h1><u>All Users</u> </h1>
+                <div className='d-flex justify-content-between '>
+                    <h1><u>All Users</u> </h1>
+                    <button className='rounded bg-secondary text-light text-uppercase' onClick={() => {router.push('/')}}>go to Home page</button>
+                </div> 
+
                 <table className='table'>
                     <thead>
                         <tr>
@@ -22,7 +26,7 @@ const Index = ({ users }) => {
                         {users.map(user => (
                             <tr key={user.id}>
                                 <td>{user.id}</td>
-                                <td onClick={() => {router.push(`/users/${user.id}`)}} style={{cursor:"pointer"}}>{user.name}</td>
+                                <td onClick={() => { router.push(`/users/${user.id}`) }} style={{ cursor: "pointer" }}>{user.name}</td>
                                 <td><b>Comany Name :-</b>{` ${user.company.name}`} <br /> <b>catchPhrase :-</b> {`  ${user.company.catchPhrase}`}</td>
                             </tr>
                         ))}
@@ -39,6 +43,7 @@ const Index = ({ users }) => {
 export default Index;
 
 export async function getStaticProps() {
+    
     try {
         const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
         return {
