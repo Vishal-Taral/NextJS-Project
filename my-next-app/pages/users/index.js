@@ -1,23 +1,23 @@
 import Layout from '@/Components/Layout'
 import React from 'react';
 import axios from 'axios';
-import { useEffect , useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import styles from '../../styles/UsersStyles/users.module.scss';
 
 const Index = () => {
-    const [users , setUsers] = useState([]);
+    const [users, setUsers] = useState([]);
     const router = useRouter();
 
     const baseURL = "https://jsonplaceholder.typicode.com/users";
 
     useEffect(() => {
         const getusers = async () => {
-            const {data : res} = await axios.get(baseURL);
+            const { data: res } = await axios.get(baseURL);
             setUsers(res);
         }
         getusers();
-    },[]);
+    }, []);
 
     return (
         <Layout>
@@ -25,7 +25,7 @@ const Index = () => {
                 <div className={styles.main_Header}>
                     <h1><u>All Users</u> </h1>
                     <h3>{users.length}</h3>
-                    <button className='rounded bg-secondary text-light text-uppercase'>Add Users</button>
+                    <button className='rounded bg-secondary text-light text-uppercase' onClick={() => { router.push('Addusers') }}>Add Users</button>
                     <button className='rounded bg-secondary text-light text-uppercase' onClick={() => { router.push('/') }}>go to Home page</button>
 
                 </div>
@@ -57,7 +57,6 @@ const Index = () => {
                     }
                 `}</style>
             </div>
-
         </Layout>
 
     )
