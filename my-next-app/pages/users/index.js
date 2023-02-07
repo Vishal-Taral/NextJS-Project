@@ -5,19 +5,19 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import styles from '../../styles/UsersStyles/users.module.scss';
 
-const Index = () => {
-    const [users, setUsers] = useState([]);
+const Index = ({ users }) => {
     const router = useRouter();
+    // const [users, setUsers] = useState([]);
 
-    const baseURL = "https://jsonplaceholder.typicode.com/users";
+    // const baseURL = "https://jsonplaceholder.typicode.com/users";
 
-    useEffect(() => {
-        const getusers = async () => {
-            const { data: res } = await axios.get(baseURL);
-            setUsers(res);
-        }
-        getusers();
-    }, []);
+    // useEffect(() => {
+    //     const getusers = async () => {
+    //         const { data: res } = await axios.get(baseURL);
+    //         setUsers(res);
+    //     }
+    //     getusers();
+    // }, []);
 
     return (
         <Layout>
@@ -64,16 +64,16 @@ const Index = () => {
 
 export default Index;
 
-// export async function getStaticProps() {
+export async function getStaticProps() {
 
-//     try {
-//         const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
-//         return {
-//             props: {
-//                 users: data
-//             }
-//         }
-//     } catch (error) {
-//         console.log("error", error);
-//     }
-// }
+    try {
+        const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
+        return {
+            props: {
+                users: data
+            }
+        }
+    } catch (error) {
+        console.log("error", error);
+    }
+}

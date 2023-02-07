@@ -10,8 +10,8 @@ const UserId = ({ user }) => {
             <Layout>
                 <div className='container'>
                     <div className='d-flex justify-content-between '>
-                        <h1 style={{fontSize: "20px" , color:"blue"}}><u>User Detail page</u> </h1>
-                        <button onClick={() => {router.push('/users')}} className='rounded bg-secondary text-light text-uppercase'>go to back page</button>
+                        <h1 style={{ fontSize: "20px", color: "blue" }}><u>User Detail page</u> </h1>
+                        <button onClick={() => { router.push('/users') }} className='rounded bg-secondary text-light text-uppercase'>go to back page</button>
                     </div>
 
                     <table className='table mt-5'>
@@ -20,7 +20,7 @@ const UserId = ({ user }) => {
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Website</th>
-                                <th>city</th>
+                                <th>City</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,7 +42,7 @@ const UserId = ({ user }) => {
 export default UserId;
 
 export async function getServerSideProps(context) {
-    
+
     try {
         const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users/${context.query.id}`)
         return {
